@@ -110,7 +110,7 @@ end;
 function TNameCase.GetLastName(ALastName: string; ACase,aGender: integer): string;
 begin
    self.lastname := ALastName;
-   if (aGender=2) or (femaleFamilyIsConstant(AnsiLowerCase(ALastName))=True) then
+   if (aGender=2) and (femaleFamilyIsConstant(AnsiLowerCase(ALastName))=True) then
        Result:=ALastName
    else
        Result := inflect(lastname, ACase, 'lastname',aGender);
